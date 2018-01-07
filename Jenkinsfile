@@ -16,11 +16,11 @@ pipeline {
             steps {
                 build job: 'deploy-to-staging'
             }
+        }
         stage ('static Code analysis'){
             steps {
                 build job: 'static_analysis'
             }
-        }
-      
+        }      
     }
 }
