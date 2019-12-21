@@ -8,7 +8,7 @@ RUN mv apache-tomcat-8.5.50/* /opt/tomcat-docker-aws/.
 RUN yum -y install java
 RUN java -version
 WORKDIR /opt/tomcat-docker-aws/webapps
-
+COPY . /opt/tomcat-docker-aws/conf/
 EXPOSE 8095
 
 CMD ["/opt/tomcat-docker-aws/bin/catalina.sh", "run"]
