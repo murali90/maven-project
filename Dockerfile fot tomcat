@@ -1,0 +1,14 @@
+FROM centos
+RUN mkdir /opt/tomcat-docker-aws/
+WORKDIR  /opt/tomcat-docker-aws/
+RUN yum -y install curl
+RUN curl -O https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz
+RUN tar xvfz apache*.tar.gz
+RUN mv apache-tomcat-8.5.50/* /opt/tomcat-docker-aws/.
+RUN yum -y install java
+RUN java -version
+WORKDIR /opt/tomcat-docker-aws/webapps
+
+EXPOSE 8095
+
+CMD ["/opt/tomcat-docker-aws/bin/catalina.sh", "run"]
